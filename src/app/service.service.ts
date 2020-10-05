@@ -29,7 +29,7 @@ export class ServiceService {
       following: number,
       url: string
     }
-    let promise = new Promise((resolve,reject) => {
+    let promise = new Promise((resolve, reject) => {
       this.http.get<expected>('https://api.github.com/users/' + num + this.profile).toPromise().then(data => {
         this.user = new User(
           data.login,
@@ -46,13 +46,37 @@ export class ServiceService {
 
         resolve()
       },
-      error => {
+        error => {
           console.log(error);
-          
+
           reject()
         }
       )
     });
     return promise
+  }
+
+  userRepo(num: any) {
+    interface expected {
+      name: string,
+      forks: number,
+      watcher: number
+    }
+    let promise = new Promise((resolve, reject) => {
+      this.http.get<expected>('https://api.github.com/users/' + num + this.profile).toPromise().then(data => {
+        this.repo = new Repo(
+          data.name,
+          data.forks,
+          data.watcher
+        );
+        console.log(data)
+        resolve()
+      },
+        error => {
+          console.log(error);
+
+          reject()
+        });
+    }
   }
 }
