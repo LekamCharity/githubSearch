@@ -15,7 +15,7 @@ export class ServiceService {
 
   constructor(private http: HttpClient) {
     this.user = new User('', '', '', '', 0, 0, 0, 0, '')
-    this.repo = new Repo('','',0,'','')
+    this.repo = new Repo(0,'','',0,'','')
   }
   userProfile(num: string) {
     interface expected {
@@ -27,7 +27,7 @@ export class ServiceService {
       repos: number,
       followers: number,
       following: number,
-      url: string
+      html_url: string
     }
     let promise = new Promise((resolve, reject) => {
       this.http.get<expected>('https://api.github.com/users/' + num + '?access_token=' + this.profile).toPromise().then(data => {
@@ -41,7 +41,7 @@ export class ServiceService {
           data.repos,
           data.followers,
           data.following,
-          data.url
+          data.html_url
         );
       
 
@@ -59,6 +59,7 @@ export class ServiceService {
 
   userRepo(num: string) {
     interface expected {
+      repo:number,
       description: string,
       name:string,
       forks: number,
@@ -68,6 +69,7 @@ export class ServiceService {
     let promise = new Promise((resolve, reject) => {
       this.http.get<expected>('https://api.github.com/users/' + num + '?access_token=' + '/repos' + this.profile).toPromise().then(data => {
         this.repo = new Repo(
+          data.repo,
           data.description,
           data.name,
           data.forks,

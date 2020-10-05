@@ -21,13 +21,11 @@ export class AppComponent {
   onSearch(SearchTerm){
     this.sec.userProfile(SearchTerm).then((result)=> {
         this.user = this.sec.user
-        //console.log(this.user)
       },
       (error)=>{console.log(error)}
     );
     this.sec.userRepo(SearchTerm).then((result)=> {
       this.repo = this.sec.repo
-      //console.log(this.user)
     },
     (error)=>{console.log(error)}
   );
@@ -35,6 +33,7 @@ export class AppComponent {
  
   ngOnInit(): void {
     this.onSearch('LekamCharity');
+
   }
 
 }
