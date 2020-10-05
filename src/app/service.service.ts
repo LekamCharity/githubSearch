@@ -15,7 +15,7 @@ export class ServiceService {
 
   constructor(private http: HttpClient) {
     this.user = new User('', '', '', '', 0, 0, 0, 0, '')
-    this.repo = new Repo('', 0, 0)
+    this.repo = new Repo('','',0,'','')
   }
   userProfile(num: string) {
     interface expected {
@@ -30,7 +30,8 @@ export class ServiceService {
       url: string
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<expected>('https://api.github.com/users/' + num + this.profile).toPromise().then(data => {
+      this.http.get<expected>('https://api.github.com/users/' + num + '?access_token=' + this.profile).toPromise().then(data => {
+        //console.log(data)
         this.user = new User(
           data.login,
           data.avatar_url,
@@ -42,7 +43,7 @@ export class ServiceService {
           data.following,
           data.url
         );
-        console.log(data)
+      
 
         resolve()
       },
@@ -56,20 +57,25 @@ export class ServiceService {
     return promise
   }
 
-  userRepo(num: any) {
+  userRepo(num: string) {
     interface expected {
-      name: string,
+      description: string,
+      name:string,
       forks: number,
-      watcher: number
+      language:string,
+      html_url:string,
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<expected>('https://api.github.com/users/' + num + this.profile).toPromise().then(data => {
+      this.http.get<expected>('https://api.github.com/users/' + num + '?access_token=' + '/repos' + this.profile).toPromise().then(data => {
         this.repo = new Repo(
+          data.description,
           data.name,
           data.forks,
-          data.watcher
+          data.html_url,
+          data.language
         );
         console.log(data)
+
         resolve()
       },
         error => {
@@ -77,6 +83,8 @@ export class ServiceService {
 
           reject()
         });
-    }
+
+    });
+    return promise;
   }
 }

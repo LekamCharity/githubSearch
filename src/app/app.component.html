@@ -1,1 +1,60 @@
-<app-profile></app-profile>
+<div class="container">
+    <div class="jumbotron">
+        <h1>GITHUBSEARCH</h1>
+        <small class="text-muted">Search</small>
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" [(ngModel)]="searchTerm" name="searchTerm">
+                <button type="submit" class="btn btn-success" (click)="onSearch(searchTerm)">Search</button>
+            </div>
+        </form>
+    </div>
+    <!-- <div class="row">
+        <div class="col-sm">
+            <p>{{user.login}}</p>
+            <img src="{{user.avatar_url}}">
+
+        </div>
+        <div class="col-sm">
+            <div class="well" id="display">
+                <img [src]="avatar_Url">
+                <div class="information" style="float:right">
+                    <h4>Repositories: {{user.public_repos}}</h4>
+                    <h4>Followers: {{user.followers}}</h4>
+                    <h4>Following: {{user.following}}</h4>
+
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-sm">
+            <div class="">
+        
+                <div class="avatar mx-auto white">
+                    <img src="{{user.avatar_url}}" class="rounded-circle"
+                        alt="woman avatar">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card testimonial-card">
+        
+                <div class="card-body">
+                    <h4 class="card-title">{{user.login}}</h4>
+                    <hr>
+                    <p>{{user.repos}}</p>
+                   Followers: <p>{{user.followers}}</p>
+                    Following:<p>{{user.following}}</p>
+                    Public Repos: <p>{{user.repos}}</p>
+                    <button type="button" class="btn btn-flat btn-lg">View page</button>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
+    <h2>Repositories</h2>
+   
+</div>

@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Repo } from  './repo';
+import { User } from './user';
+import { ServiceService } from './service.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'githubSearch';
+  user:User;
+  repo:Repo;
+  Users=[]
+  searchTerm = '';
+
+  constructor(public sec: ServiceService, http: HttpClient ) { }
+
+  onSearch(SearchTerm){
+    this.sec.userProfile(SearchTerm).then((result)=> {
+        this.user = this.sec.user
+        //console.log(this.user)
+      },
+      (error)=>{console.log(error)}
+    );
+    this.sec.userRepo(SearchTerm).then((result)=> {
+      this.repo = this.sec.repo
+      //console.log(this.user)
+    },
+    (error)=>{console.log(error)}
+  );
+  }
+ 
+  ngOnInit(): void {
+    this.onSearch('LekamCharity');
+  }
+
 }
