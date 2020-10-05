@@ -1,10 +1,10 @@
 export class User {
     constructor(
-      public image:string,
-      public name:string,
+      public login:string,
+      public avatar_url:string,
       public email:string,
       public location:string,
-      public memberSince:Date,
+      public memberSince:Number,
       public repos:number,
       public followers:number,
       public following:number,

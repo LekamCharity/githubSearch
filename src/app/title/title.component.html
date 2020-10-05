@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <h2 class='title'> <i class="fa fa-github"></i> GitHub
+      <small class="text-muted">Search</small>
+    </h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+  
+        <input (keyup)='getUsers($event)' #keyword class="form-control mr-sm-2" type="text" placeholder="Search users , repos . . ." name='keyword'>
+      </form>
+    </div>
+  </nav>
+  <br> <br>
+  <!-- <app-profile></app-profile> -->
+  
+  
+  <div *ngIf="keyword !='' " class="row">
+      <div class="col-md-4">
+            <div class="card mb-3">
+                <h3 class="card-header"> {{ request.user.name }} <i class="fa fa-envira"></i> </h3>
+                <img style="height: 30%; width: auto; display: block;" src="{{request.user.image}}" alt="Card image">
+  
+                <div class="card-body">
+                    <a target="_blank" href="{{request.user.url}}">
+                        <button type="button" class="btn btn-outline-success">view profile</button>
+                    </a>
+                </div>
+  
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> Username : {{request.user.name}} </li>
+                  <li class="list-group-item"> Location : {{request.user.location}} </li>
+                  <li class="list-group-item"> Email : {{request.user.email}} </li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">
+                      <button type="button" class="btn btn-outline-info">{{request.user.followers}} followers</button>
+                  </a>
+                  <a href="#" class="card-link">
+                      <button type="button" class="btn btn-outline-info">{{request.user.following}} following</button>
+                  </a>
+                  <a href="#" class="card-link">
+                      <button type="button" class="btn btn-outline-info">{{request.user.repos}} Repos</button>
+                  </a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{request.user.memberSince}}
+                    <span class="badge badge-dark"> {{request.user.memberSince|dateCount}} days ago  </span>
+                </div>
+              </div>
+      </div>
+  
+        <div  class="col-md-8">
+            <a href="#" class="list-group-item list-group-item-action active">
+                {{request.user.name}} Repos
+              </a>
+            <ul style='list-style: none' *ngFor='let repo of request.repos$ ; let i = index' class="list-group">
+                <li>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <a target="_blank" href="{{request.repos$[i].html_url}}">
+                      {{i+1}} . {{request.repos$[i].name}}
+                  </a>
+                  <span class="badge badge-primary badge-pill">{{request.repos$[i].watchers}}watchers | {{request.repos$[i].forks}} forks</span>
+                </li>
+              </ul>
+        </div>
+  
+    </div>
+  
+  <div *ngIf="keyword =='' " class="row">
+    <h2>No User Found</h2>
+  </div>
+  
