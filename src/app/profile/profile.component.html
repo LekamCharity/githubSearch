@@ -1,1 +1,10 @@
-<p>profile works!</p>
+<div class="container">
+    <div class="jumbotron">
+      <h1>GITHUBSEARCH</h1>
+      <small class="text-muted">Search</small>
+        <div class="form-group">
+            <input type="text" class="form-control" id="name"  name="searchTerm" #search>
+                <button type="submit" class="btn btn-success" (click)="onSearch(search)">Search</button>
+        </div>
+    </div>
+  </div>

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Repo } from './repo';
 import { User } from './user';
 import { environment } from 'src/environments/environment';
-import { allowedNodeEnvironmentFlags } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +29,7 @@ export class ServiceService {
       following: number,
       url: string
     }
-    let promise = new Promise((resolve, reject)) => {
+    let promise = new Promise((resolve,reject) => {
       this.http.get<expected>('https://api.github.com/users/' + num + this.profile).toPromise().then(data => {
         this.user = new User(
           data.login,
@@ -42,8 +41,18 @@ export class ServiceService {
           data.followers,
           data.following,
           data.url
-        )
-      })
-    }
+        );
+        console.log(data)
+
+        resolve()
+      },
+      error => {
+          console.log(error);
+          
+          reject()
+        }
+      )
+    });
+    return promise
   }
 }
