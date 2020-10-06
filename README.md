@@ -29,5 +29,5 @@ This project was generated with [Angular CLI]
 If you have any question or contributions, please email me at [lekamcharity@gmail.com]
 
 ### License
-  [MIT](https://github.com/LekamCharity/githubSearch/blob/master/License)
+  [MIT](https://github.com/LekamCharity/githubSearch/blob/master/License) Copyright (c) 2020 Lekam Charity
 
