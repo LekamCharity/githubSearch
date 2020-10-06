@@ -1,27 +1,31 @@
 # GithubSearch
+## By Lekam Charity
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+## Description
+Gitsearch allows a user to search a github user using their username. It returns the user information including, username, company, number of repositories, number of followers on github and the number of people they are following on github.
 
-## Development server
+## Live link to the website
+https://github.com/LekamCharity/githubSearch
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Design link/Figma
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
+This project was generated with [Angular CLI]
 
-## Build
+## Installation /Setup instruction
+* Open Terminal {Ctrl+Alt+T}
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* git clone ```https://github.com/LekamCharity/githubSearch.git```
 
-## Running unit tests
+* cd githubSearch
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* code . or atom . based on the text editor you have.
 
-## Running end-to-end tests
+## Contact Information 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+If you have any question or contributions, please email me at [lekamcharity@gmail.com]
 
-## Further help
+### License
+  [MIT](https://github.com/LekamCharity/githubSearch/blob/master/License)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

@@ -5,3 +5,10 @@ h1{
     font-size: 60px;
     color: blue;
 }
+#repoz{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  

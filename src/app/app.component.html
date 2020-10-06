@@ -25,7 +25,6 @@
                 <div class="card-body">
                     <h4 class="card-title">{{user.login}}</h4>
                     <hr>
-                    Repositories:<p>{{user.repo}}</p>
                     Followers: <p>{{user.followers}}</p>
                     Following:<p>{{user.following}}</p>
                 </div>
@@ -39,23 +38,26 @@
     </div>
     <h2>Repositories</h2>
 
-    <div class="div">
-        <div class="">
-            <ul *ngFor='let repo of sec.repos; let i = index'>
-                <li>
-                    <p><a href="{{sec.repos[i].html_url}}">{{sec.repos[i].name}}</a></p>
-                    <p>{{sec.repos[i].description}}</p>
-                    <span class="row">
-                        Langauge:
-                        <p class="pl-3">{{sec.repos[i].language}}</p>
-                    </span>
-                    <span class="row">
-                        Forks:
-                        <p class="pl-3">{{sec.repos[i].forks}}</p>
-                    </span>
-                </li>
-            </ul>
+    <div class="row">
+        <div class="col">
+            <div class="row pt-2" *ngFor='let repo of sec.repos; let i = index'>
+                <div class="card" style="width:100%">
+                    <div class="card-header">
+                        <p><a href="{{sec.repos[i].html_url}}">{{sec.repos[i].name}}</a></p>
+                    </div>
+                    <div class="card-body">
+                            <p>{{sec.repos[i].description}}</p>
+                            <span class="row">
+                                Langauge:
+                                <p class="pl-3">{{sec.repos[i].language}}</p>
+                            </span>
+                            <span class="row">
+                                Forks:
+                                <p class="pl-3">{{sec.repos[i].forks}}</p>
+                            </span>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 </div>
