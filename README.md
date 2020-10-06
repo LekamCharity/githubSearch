@@ -2,7 +2,7 @@
 ## By Lekam Charity
 
 ## Description
-Gitsearch allows a user to search a github user using their username. It returns the user information including, username, company, number of repositories, number of followers on github and the number of people they are following on github.
+Gitsearch allows a user to search a github user using their username. It returns the user information including, username, , number of followers on github and the number of people they are following on github.
 
 
 ## Live link to the website
