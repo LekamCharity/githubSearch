@@ -5,6 +5,7 @@ export class Repo {
       public name:string,
       public forks:number,
       public language:string,
-      public html_url:string
+      public html_url:string,
+      public date_created
     ){}
   }
