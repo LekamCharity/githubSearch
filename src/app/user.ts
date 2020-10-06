@@ -5,7 +5,7 @@ export class User {
       public email:string,
       public location:string,
       public memberSince:Number,
-      public repos:number,
+      public repo:number,
       public followers:number,
       public following:number,
       public html_url:string

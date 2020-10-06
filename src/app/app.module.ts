@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DateCountPipe } from './date-count.pipe';
-import { StrikethroughDirective } from './strikethrough.directive';
 import { HighlightDirective } from './highlight.directive';
 
 
@@ -15,7 +14,6 @@ import { HighlightDirective } from './highlight.directive';
   declarations: [
     AppComponent,
     DateCountPipe,
-    StrikethroughDirective,
     HighlightDirective,
   ],
   imports: [

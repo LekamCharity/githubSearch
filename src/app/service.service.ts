@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class ServiceService {
   user: User;
   repo: Repo;
+  repos;
 
   profile = environment.url;
 
@@ -24,21 +25,22 @@ export class ServiceService {
       email: string,
       location: string,
       memberSince: Number,
-      repos: number,
+      repo_url: any,
       followers: number,
       following: number,
-      html_url: string
+      html_url: string,
+    
     }
     let promise = new Promise((resolve, reject) => {
       this.http.get<expected>('https://api.github.com/users/' + num + '?access_token=' + this.profile).toPromise().then(data => {
-        //console.log(data)
+
         this.user = new User(
           data.login,
           data.avatar_url,
           data.email,
           data.location,
           data.memberSince,
-          data.repos,
+          data.repo_url,
           data.followers,
           data.following,
           data.html_url
@@ -57,26 +59,27 @@ export class ServiceService {
     return promise
   }
 
-  userRepo(num: string) {
+  userRepo(num: string): any {
     interface expected {
-      repo:number,
-      description: string,
-      name:string,
+      repo_url:any,
+      description: any,
+      name:any,
       forks: number,
-      language:string,
-      html_url:string,
+      language:any,
+      html_url:any,
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<expected>('https://api.github.com/users/' + num + '?access_token=' + '/repos' + this.profile).toPromise().then(data => {
+      this.http.get<expected>('https://api.github.com/users/' + num + '/repos' + '?access_token='+ this.profile).toPromise().then(data => {
+
         this.repo = new Repo(
-          data.repo,
+          data.repo_url,
           data.description,
           data.name,
           data.forks,
           data.html_url,
           data.language
         );
-        console.log(data)
+        this.repos = data;
 
         resolve()
       },

@@ -13,27 +13,34 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   user:User;
   repo:Repo;
+  repos = [];
   Users=[]
   searchTerm = '';
 
   constructor(public sec: ServiceService, http: HttpClient ) { }
 
   onSearch(SearchTerm){
+
     this.sec.userProfile(SearchTerm).then((result)=> {
         this.user = this.sec.user
+        //console.log(this.user)
       },
-      (error)=>{console.log(error)}
+
+      (error)=>{
+        console.log(error)
+      }
     );
     this.sec.userRepo(SearchTerm).then((result)=> {
       this.repo = this.sec.repo
     },
-    (error)=>{console.log(error)}
-  );
+    (error)=>{
+      console.log(error)
+    }
+    );
   }
  
   ngOnInit(): void {
     this.onSearch('LekamCharity');
-
   }
 
 }

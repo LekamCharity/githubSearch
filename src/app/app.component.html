@@ -9,34 +9,53 @@
             </div>
         </form>
     </div>
-    
+
     <div class="row">
         <div class="col-sm">
             <div class="">
-        
+
                 <div class="avatar mx-auto white">
-                    <img src="{{user.avatar_url}}" class="rounded-circle"
-                        alt="woman avatar">
+                    <img src="{{user.avatar_url}}" class="rounded-circle" alt="woman avatar">
                 </div>
             </div>
         </div>
         <div class="col-sm">
             <div class="card testimonial-card">
-        
+
                 <div class="card-body">
                     <h4 class="card-title">{{user.login}}</h4>
                     <hr>
-                    Repositories:<p>{{user.repos}}</p>
-                   Followers: <p>{{user.followers}}</p>
+                    Repositories:<p>{{user.repo}}</p>
+                    Followers: <p>{{user.followers}}</p>
                     Following:<p>{{user.following}}</p>
-                
                 </div>
-        
             </div>
         </div>
     </div>
     <div class="card-body">
-        <span  class="name"><i class="fa fa-user" style="font-size:20px"></i>&nbsp;{{user.login}} </span> <a href="{{user.html_url}}"><button class="btn-outline-success btn btn-sm"><i class="fa fa-github" style="font-size:20px"></i> &nbsp; <span id="profile">Github</span> </button></a>
+        <span class="name"><i class="fa fa-user" style="font-size:20px"></i>&nbsp;{{user.login}} </span> <a
+            href="{{user.html_url}}"><button class="btn-outline-success btn btn-sm"><i class="fa fa-github"
+                    style="font-size:20px"></i> &nbsp; <span id="profile">Github</span> </button></a>
     </div>
     <h2>Repositories</h2>
+
+    <div class="div">
+        <div class="">
+            <ul *ngFor='let repo of sec.repos; let i = index'>
+                <li>
+                    <p><a href="{{sec.repos[i].html_url}}">{{sec.repos[i].name}}</a></p>
+                    <p>{{sec.repos[i].description}}</p>
+                    <span class="row">
+                        Langauge:
+                        <p class="pl-3">{{sec.repos[i].language}}</p>
+                    </span>
+                    <span class="row">
+                        Forks:
+                        <p class="pl-3">{{sec.repos[i].forks}}</p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
 </div>
