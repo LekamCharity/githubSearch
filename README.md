@@ -10,6 +10,10 @@ https://github.com/LekamCharity/githubSearch
 
 
 
+## Design/Figma link
+https://www.figma.com/file/e1OSNzT6AQSzCaJGOzeccY/GithubSearch?node-id=0%3A1
+
+
 ## Technologies Used
 This project was generated with [Angular CLI]
 

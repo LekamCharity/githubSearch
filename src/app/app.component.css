@@ -2,8 +2,14 @@ h1{
     text-align: center;
     font-weight: bolder;
     font-style: italic;
-    font-size: 60px;
+    font-size: 20px;
     color:blue;
 }
-
+h2{
+    font-style: italic;
+    color:blue;
+}
+.title{
+    font-size: 20px;
+}
   
